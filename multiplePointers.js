@@ -48,4 +48,50 @@ function sumZero(arr){
 sumZero([-4,-3,-2,-1,0,1,2,5])
 
 
-// write a function which accepts a sorted array of integers.
+// write a function called countUniqueValues which accepts a sorted array of integers.
+
+
+// define pointer 1 and 2
+// check if value of pointer 2 is same as value of pointer 1.
+// if yes: move pointer two to right
+// if not: move pointer 1 to right
+// and reassing i value to j value
+// when pointer two is at last index return index of pointer 1.
+
+//Big 0 time: O(n)
+
+// Solution 1
+function countUniqueValues(arr){
+  let left = 0;
+  let right = 1;
+
+  if(arr.length === 0 ){
+    return 0
+  };
+  while (right < arr.length){
+    if (arr[left] === arr[right]){
+      right ++;
+    } else {
+       left ++;
+       arr[left] = arr[right];
+    }
+  }
+  return left + 1
+}
+
+countUniqueValues([1,1,2,3,3,5]);
+
+
+// Solution 2
+function countUniqueValues(arr){
+  if(arr.length === 0) return 0;
+  var i = 0;
+  for(var j = 1; j < arr.length; j++){
+      if(arr[i] !== arr[j]){
+          i++;
+          arr[i] = arr[j]
+      }
+  }
+  return i + 1;
+}
+countUniqueValues([1,2,2,5,7,7,99])
