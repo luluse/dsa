@@ -8,7 +8,7 @@
 
 
 // solution 1
-// Big O time: O^2
+// Big O time: O(n^2)
 function same(arr1, arr2){
   if(arr1.length !== arr2.length){
       return false;
