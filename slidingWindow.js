@@ -1,6 +1,6 @@
 // very useful for keeping track of a subset of data in an array/string
 
-// write a function called maSubArray that axxepts an array of integers and a number called n.
+// write a function called maSubArray that accepts an array of integers and a number called n.
 // calculate the maximum sum of n consecutive elements in the array 
 
 // Solution 1
