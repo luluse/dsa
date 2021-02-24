@@ -55,3 +55,17 @@ collectOddValues([1,2,3,4,5])
    // Strings are immutable. use methods like slice, substr or substring to make copies of strings.
 
    // to make copies of objs use Object.assign or spread operator
+
+
+
+   
+
+// write a function that takes in an array of numbers and return the product of them all
+
+   function product(arr){
+    if (arr.length === 0) return 1;
+    console.log(arr)
+    return arr[0] * product(arr.slice(1))
+  }
+  
+  product([1,2,3])
