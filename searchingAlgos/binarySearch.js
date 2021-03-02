@@ -30,3 +30,6 @@ function binarySearch(arr, elem) {
 
 binarySearch([1,2,4,6,7,8,9], 4)
 
+// Big O
+// worst and average case : O(log n)
+// best case O(1)
