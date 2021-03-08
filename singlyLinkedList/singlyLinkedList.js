@@ -38,7 +38,11 @@
 // if number is negative or greater than or equal to the lenght of the list return null
 // loop through the list until you reach the number and return th node atthat specific number. (use a counter)
 
-
+// Set pseudo Code (changing the value of a node based on its position on the list)
+// accepts a value and an index
+// use get function to find that node
+// if node not found return false
+// if node found update value
 
 class Node {
   constructor(val) {
