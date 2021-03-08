@@ -33,6 +33,11 @@
 // increment length by one
 // return linked list
 
+// Get pseudo code (retrieving a node by it's position in the list)
+// takes in a number and traverse the list that many times and return the node at that place.
+// if number is negative or greater than or equal to the lenght of the list return null
+// loop through the list until you reach the number and return th node atthat specific number. (use a counter)
+
 
 
 class Node {
@@ -103,6 +108,17 @@ class SinglyLinkedList {
     }
     this.length++;
     return this;
+  }
+
+  get(index){
+    if(index < 0 || index >= this.length) return null;
+    var current = this.head;
+    var count = 0;
+    while(count !== index){
+      current = current.next
+      count++
+    }
+    return current;
   }
 
 }
