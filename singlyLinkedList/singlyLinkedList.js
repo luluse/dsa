@@ -18,6 +18,23 @@
 // decrement lenght of list by one. 
 // Return value of node removed
 
+// shifting pseudo code (remove from the beginnig of list):
+// if there is no node, return undefined
+// else store current head in variable
+// set current head next to be head
+// decrement length by one
+// return value of removed node
+
+// unshift pseudo code (adding a new node to the beginnig of list):
+// accepts a value, create a nre node using the value passed to the function
+// if there are no head property on the list, set head and tail to be this new node. 
+// otherwise set newly created node's next property to be the current head
+// set head property to be that newly created node
+// increment length by one
+// return linked list
+
+
+
 class Node {
   constructor(val) {
     this.val = val;
@@ -61,9 +78,32 @@ class SinglyLinkedList {
       this.tail = null;
     }
     return current;
-
   }
 
+  shift(){
+    if (!this.head) return undefined; 
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
+
+  unshift(val) {
+    var newNode = new Node(val);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 
 }
 
