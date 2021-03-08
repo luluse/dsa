@@ -55,6 +55,16 @@
 // increment length of list
 // return true
 
+// RemovePseudo Code
+// accepts an index
+// if number is negative or greater than the lenght of the list return undefined
+// if index is same as length-1, pop()
+// if index is 0, shift()
+// otherwise, using get() access node at index-1
+// set next prperty on the node to be the next of the next's node 
+// decrement length
+// return value of removed node
+
 class Node {
   constructor(val) {
     this.val = val;
@@ -148,6 +158,18 @@ class SinglyLinkedList {
     previous.next = newNode;
     this.length++;
     return true
+  }
+
+  remove(index){
+    if(index < 0 || index > this.length) return undefined;
+    if(index === this.length-1) return this.pop(val);
+    if(index === 0) return this.shift(val);
+    
+    var previous = this.get(index-1);
+    var current = previous.next;
+    previous.next = current.next
+    this.length--;
+    return current;
   }
 
 }
