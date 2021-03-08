@@ -44,6 +44,17 @@
 // if node not found return false
 // if node found update value
 
+// Insert Pseudo Code 
+// takes in Index and value 
+// if number is negative or greater than the lenght of the list return false
+// if index is same as length push node to end of list
+// if index is 0 unshift a new node to the start of list
+// otherwise using the get method, access node at index-1
+// set next property on that node to be the new node 
+// set next propert on new node to be the previous next
+// increment length of list
+// return true
+
 class Node {
   constructor(val) {
     this.val = val;
@@ -123,6 +134,20 @@ class SinglyLinkedList {
       count++
     }
     return current;
+  }
+
+  insert(index, val){
+    if(index < 0 || index > this.length) return false;
+    if(index === this.length) return !!this.push(val);
+    if(index === 0) return !!this.unshift(val);
+    
+    var newNode = new Node(val);
+    var current = this.get(index);
+    var previous = this.get(index-1);
+    newNode.next = current;
+    previous.next = newNode;
+    this.length++;
+    return true
   }
 
 }
