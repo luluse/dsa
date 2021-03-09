@@ -40,6 +40,45 @@
 // return linked list
 
 
+// Get pseudo code (retrieving a node by it's position in the list)
+// if number is negative or greater than or equal to the lenght of the list return null
+// if index is less than or equal to half the length of the list, loop through the list starting from the head and toward the middle. return node when found
+// if index is greater than half the length of the list, loop through the list starting from the tail and toward the middle. return node when found
+
+
+// Set pseudo Code (changing the value of a node based on its position on the list)
+// accepts a value and an index
+// use get function to find that node
+// if node not found return false
+// if node found update value
+
+
+// Insert Pseudo Code 
+// takes in Index and value 
+// if number is negative or greater than the lenght of the list return false
+// if index is same as length push node to end of list
+// if index is 0 unshift a new node to the start of list
+// otherwise using the get method, access node at index-1
+// set next property on that node to be the new node 
+// set next propert on new node to be the previous next
+// increment length of list
+// return true
+// O(1)
+
+// Remove Pseudo Code
+// accepts an index
+// if number is negative or greater than the lenght of the list return undefined
+// if index is same as length-1, pop()
+// if index is 0, shift()
+// otherwise, using get() access node at index-1
+// set next prperty on the node to be the next of the next's node 
+// decrement length
+// return value of removed node
+// 0(1) if at beginning of array
+// else 0(n)
+
+
+
 class Node {
   constructor(val) {
     this.val = val;
@@ -77,9 +116,9 @@ class DoublyLinkedList {
       this.head = null;
       this.tail = null;
     } else {
-    this.tail = popped.previous;
-    this.tail.next = null;
-    popped.previous = null;
+      this.tail = popped.previous;
+      this.tail.next = null;
+      popped.previous = null;
     }
     this.length--;
     return popped;
@@ -92,9 +131,9 @@ class DoublyLinkedList {
       this.head = null;
       this.tail = null;
     } else {
-    this.head = oldHead.next;
-    this.head.previous = null;
-    oldHead.next = null;
+      this.head = oldHead.next;
+      this.head.previous = null;
+      oldHead.next = null;
     }
     this.length--;
     return oldHead;
@@ -113,6 +152,32 @@ class DoublyLinkedList {
     }
     this.length++;
     return this;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    let middle = (Math.floor(this.length / 2));
+
+    if (index <= middle) {
+      var current = this.head;
+      var count = 0;
+      while (count !== index) {
+        current = current.next
+        count++
+      }
+      return current;
+    }
+
+    if (index > middle) {
+      var current = this.tail;
+      var count = this.length;
+      while (count !== index) {
+        current = current.previous
+        count--
+      }
+      return current;
+    }
   }
 
 }
