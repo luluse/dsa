@@ -169,6 +169,15 @@ class SinglyLinkedList {
     return current;
   }
 
+  set(index, val){
+    var current = this.get(index);
+    if (current){
+      current.val = val;
+      return true;
+    }
+    return false;
+  }
+
   insert(index, val) {
     if (index < 0 || index > this.length) return false;
     if (index === this.length) return !!this.push(val);

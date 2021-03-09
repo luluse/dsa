@@ -48,9 +48,9 @@
 
 // Set pseudo Code (changing the value of a node based on its position on the list)
 // accepts a value and an index
-// use get function to find that node
+// use get function to find that node, store it in a var
 // if node not found return false
-// if node found update value
+// if node found update value and return true
 
 
 // Insert Pseudo Code 
@@ -60,7 +60,7 @@
 // if index is 0 unshift a new node to the start of list
 // otherwise using the get method, access node at index-1
 // set next property on that node to be the new node 
-// set next propert on new node to be the previous next
+// set next and previous property on correct nodes to link together
 // increment length of list
 // return true
 // O(1)
@@ -178,6 +178,33 @@ class DoublyLinkedList {
       }
       return current;
     }
+  }
+
+  set(index, val){
+    var current = this.get(index);
+    if (current !== null){
+      current.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+
+    var newNode = new Node(val);
+    var beforeNode = this.get(index - 1);
+    var afterNode = beforeNode.next;
+
+    beforeNode.next = newNode;
+    newNode.previous = beforeNode;
+    newNode.next = afterNode;
+    afterNode.previous = newNode;
+
+    this.length++;
+    return true
   }
 
 }
