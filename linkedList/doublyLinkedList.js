@@ -70,12 +70,16 @@
 // if number is negative or greater than the lenght of the list return undefined
 // if index is same as length-1, pop()
 // if index is 0, shift()
-// otherwise, using get() access node at index-1
-// set next prperty on the node to be the next of the next's node 
+// otherwise, use get() 
+// update next and previous properties on nodes from the list
+// set prev and next props on tha removed node to null
 // decrement length
 // return value of removed node
-// 0(1) if at beginning of array
-// else 0(n)
+// 0(1) --> much faster than in singly linked list
+
+
+// Searching 0(n)
+// Access 0(n)
 
 
 
@@ -205,6 +209,21 @@ class DoublyLinkedList {
 
     this.length++;
     return true
+  }
+
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length - 1) return this.pop(val);
+    if (index === 0) return this.shift(val);
+
+    var remove = this.get(index);
+    remove.previous.next = remove.next;
+    remove.next.previous = remove.previous;
+   
+    remove.next = null;
+    remove.previous = null;
+    this.length--;
+    return remove;
   }
 
 }
