@@ -20,6 +20,22 @@
     // if no node, add new node as left property
 // return tree
 
+
+// pseudo code Find
+// starting at the root
+// if no root- we're done
+// if root- check if this is the value we're looking for, if found, we're done
+// if not, check if value is less or greater than root
+// if greater 
+    // check if there is node to the right
+    // if yes, move to that node and repeat steps
+    // if no, we're done searching
+// if less 
+    // check if there is node to the left
+    // if yes, move to that node and repeat steps
+    // if no, we're done searching
+
+
 class Node {
   constructor(value){
       this.value = value;
@@ -60,6 +76,41 @@ class BinarySearchTree {
         }
     }
 }
+
+// return the node found 
+find(value){
+  if(this.root === null) return false;
+  var current = this.root,
+      found = false;
+  while(current && !found){
+      if(value < current.value){
+          current = current.left;
+      } else if(value > current.value){
+          current = current.right;
+      } else {
+          found = true;
+      }
+  }
+  if(!found) return undefined;
+  return current;
+}
+
+//returns true or false
+contains(value){
+  if(this.root === null) return false;
+  var current = this.root,
+      found = false;
+  while(current && !found){
+      if(value < current.value){
+          current = current.left;
+      } else if(value > current.value){
+          current = current.right;
+      } else {
+          return true;
+      }
+  }
+  return false;
+}
 }
 
 var tree = new BinarySearchTree();
@@ -67,3 +118,8 @@ tree.root = new Node(10);
 tree.root.right = new Node(15);
 tree.root.left = new Node(7);
 tree.root.left.right = new Node(9);
+
+
+
+// Big O
+// Insertion ans searching: O(log n)
