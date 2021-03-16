@@ -181,3 +181,17 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 tree.BFS();
+
+
+// Big O time: same for BFS and DFS both visiting each node once
+// Big O space: 
+  // on a wide tree:
+    // BFS has to store a lot of nodes
+    // DFS is more efficient
+  // on a deep tree: 
+    // DFS has to store a lot of nodes
+    // BFS is more efficient
+
+// potential use cases for DFS
+    // inOrder: when you want the list of values in the right order
+    // preOrder: good if you copy/ store/ duplicate a tree because it's easy to reconstruct
