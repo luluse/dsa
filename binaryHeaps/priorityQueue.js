@@ -89,3 +89,9 @@ ER.enqueue("gunshot wound", 1)
 ER.enqueue("high fever",4)
 ER.enqueue("broken arm",2)
 ER.enqueue("glass in foot",3)
+
+
+// Big 0 time:
+// insertion: O(log n)
+// removal: O(log n)
+// search: 0(n)

@@ -115,3 +115,7 @@ heap.insert(27);
 heap.insert(12);
 heap.insert(55);
 
+// Big 0 time:
+// insertion: O(log n)
+// removal: O(log n)
+// search: 0(n)
