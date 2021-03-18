@@ -15,6 +15,12 @@
 // function should reassign the key of vtx2 to be an array that does not contain vtx1
 
 // pseudo code Remove Edges
+// should accept a vertex to remove
+// function should loop as long as there are other vtx in the adj list for that vtx- we need to remove the edges too
+// inside the loop call removeEdge function to remove all edges
+// delete key in the adj list
+
+
 
 class Graph {
   constructor() {
@@ -38,11 +44,25 @@ class Graph {
         v => v !== vertex1
     );
   }
+
+  removeVertex(vertex){
+    while(this.adjacencyList[vertex].length){
+        const adjacentVertex = this.adjacencyList[vertex].pop();
+        this.removeEdge(vertex, adjacentVertex);
+    }
+    delete this.adjacencyList[vertex]
+  }
 }
 
 let g = new Graph();
 g.addVertex("Dallas");
 g.addVertex("Tokyo");
 g.addVertex("Aspen");
+g.addVertex("Los Angeles");
+g.addVertex("Hong Kong")
 g.addEdge("Dallas", "Tokyo");
 g.addEdge("Dallas", "Aspen");
+g.addEdge("Hong Kong", "Tokyo");
+g.addEdge("Hong Kong", "Dallas");
+g.addEdge("Los Angeles", "Hong Kong");
+g.addEdge("Los Angeles", "Aspen");
