@@ -1,3 +1,5 @@
+// collection of key/value pairs
+
 // used to store key/value pairs
 // unlike arrays, keys in hash tables are not ordered
 // unlike arrays, hash tables are fast for finding, adding, removing values.
@@ -69,3 +71,9 @@ ht.set("salmon","#FA8072")
 ht.set("lightcoral","#F08080")
 ht.set("mediumvioletred","#C71585")
 ht.set("plum","#DDA0DD")
+
+
+// Big O time : average case
+// insertion O(1)
+// Deletion O(1)
+// access O(1)
