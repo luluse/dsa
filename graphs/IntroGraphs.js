@@ -8,6 +8,8 @@
 // routing algos
 // visual hierarchy
 // file system
+// sortest path problems
+// find closest matches/recommendations
 // etc..
 
 // TERMINOLOGY
@@ -30,3 +32,7 @@
 // faster to iterate over all edges
 // can be slower to lookup specific edge
 
+
+// TRAVERSAL
+// visiting/ updating/ checking every node in a graph
+// 
