@@ -1,3 +1,5 @@
+// top-down solutions
+
 // full recursion solution
 // Fib(n) = Fib(n-1) + Fib(n-2)
 
@@ -15,5 +17,13 @@ function fib(n){
 // solution to make it more efficient: remember the old values. store them somewhere and go back to it when needed. 
 // => MEMOISATION: storing the result of expensive function calls and returning the cached result when the same inputs occur again
 
-// 
- 
+function fib(n, memo=[]){
+  if(memo[n] !== undefined) return memo[n];
+  if(n <= 2) return 1;
+  var res = fib(n-1, memo) + fib(n-2, memo);
+  memo[n] = res;
+  return res;
+}
+
+// Big O of MEMOIZED solution
+// O(n)
